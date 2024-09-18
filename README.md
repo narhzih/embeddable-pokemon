@@ -1,6 +1,7 @@
 # Embeddable Pokemon
 
 A simple interface for showing pokemon analytics using the Pokemon API and Recharts. 
+[Click here to see deployed app](https://embeddable-pokemon.vercel.app/)
 
 
 ## Setting up

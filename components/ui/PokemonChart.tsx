@@ -16,6 +16,7 @@ import {
 import { Loader } from "@/components/misc/Loader";
 import { Switch } from "@/components/shadcn/switch";
 import { Label } from "@/components/shadcn/label";
+import { Error } from "@/components/misc/Error";
 
 const typeColors: { [key: string]: string } = {
     normal: "#A8A77A",
@@ -82,8 +83,13 @@ export function PokemonBarChart({
     }, [typeCounts]);
 
     if (isLoading) return <Loader text="Loading chart..." />;
-    if (isError) return <div>Error: {isError.message}</div>;
-    if (!typeCounts) return null; // TODO: Add a better state UI for this
+    {
+        isError && (
+            <Error errorText="An error occurred while loading Type Chart"></Error>
+        );
+    }
+    if (!typeCounts)
+        return <h1>No data right now. Maybe check back later? 👀 </h1>;
     return (
         <>
             <div className="flex items-center justify-end px-5 space-x-2 mb-4">
@@ -152,8 +158,13 @@ export const PokemonTypeDistributionChart = ({
         useCountPokemonTypes(allPokemon);
 
     if (isLoading) return <Loader text="Loading chart..." />;
-    if (isError) return <div>Error: {isError.message}</div>;
-    if (!typeDistribution) return null; // TODO: Add a better state UI for this
+    {
+        isError && (
+            <Error errorText="An error occurred while loading Distribution Chart"></Error>
+        );
+    }
+    if (!typeDistribution)
+        return <h1>No data right now. Maybe check back later? 👀 </h1>; // TODO: Add a better state UI for this
 
     const data = [
         { name: "Single-type", value: typeDistribution?.single ?? 0 },

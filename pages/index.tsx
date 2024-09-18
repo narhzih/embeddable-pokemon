@@ -13,13 +13,15 @@ import {
     TabsTrigger,
 } from "@/components/shadcn/tabs";
 import { PokemonSearch } from "@/components/ui/PokemonSearch";
+import { Error } from "@/components/misc/Error";
 
 export default function Index() {
-    const { pokemon, isLoading } = useAllPokemon();
+    const { pokemon, isLoading, isError } = useAllPokemon();
 
     return (
         <>
             {isLoading && <Loader />}
+            {isError && <Error></Error>}
             {!isLoading && (
                 <>
                     <div className="w-full flex justify-center mt-20 px-5  md:px-10 lg:px-20">
