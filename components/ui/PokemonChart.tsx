@@ -93,9 +93,7 @@ export function PokemonBarChart({
     return (
         <>
             <div className="flex items-center justify-end px-5 space-x-2 mb-4">
-                <Label htmlFor="show-percentage">
-                    Show {showPercentage ? "Percentages" : "Counts"}
-                </Label>
+                <Label htmlFor="show-percentage">Show Percentage</Label>
                 <Switch
                     id="show-percentage"
                     checked={showPercentage}
