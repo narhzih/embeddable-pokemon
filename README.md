@@ -3,6 +3,8 @@
 A simple interface for showing pokemon analytics using the Pokemon API and Recharts. 
 [Click here to see deployed app](https://embeddable-pokemon.vercel.app/)
 
+This project only uses the first 151 set of data returned from the API anyways. 
+
 
 ## Setting up
 First install dependencies, then run the development server:
